@@ -27,7 +27,7 @@ function App() {
     },
   ];
 
-  const practiceLocation = "Field 6"
+  const practiceLocation = "Track field"
 
   return (
     <div className="app">
