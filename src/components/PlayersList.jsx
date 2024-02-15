@@ -53,7 +53,7 @@ export default function PlayersList({ allPlayers, location, absentPlayers, setAb
       {absentPlayers.length > 0 && (
         <>
           <h4>Absent Players:</h4>
-          <ul>
+          <ul className="absent-players-list">
             {absentPlayers.map((player) => {
               return <li key={player.id}>{player.firstName}</li>;
             })}

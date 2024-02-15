@@ -10,9 +10,9 @@ export default function PlayerCard({ player, updateAttendance }) {
   }
 
   return (
-    <li className="player-card">
+    <li className="player-card" onClick={toggleAttendance}>
       <div>{`${player.lastName}, ${player.firstName} // Role: ${player.role}`}</div>
-      <button className="player-card-button" onClick={toggleAttendance}>{isPresent ? "present" : "absent"}</button>
+      <div className={`player-attendance ${isPresent ? "player-present" : "player-absent"}`} >{isPresent ? "present" : "absent"}</div>
     </li>
   );
 }

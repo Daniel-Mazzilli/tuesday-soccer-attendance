@@ -4,6 +4,8 @@
     width: 420px;
     min-height: 300px;
     border-radius: 8px;
+    margin:20px;
+    padding: 10px 20px;
 }
 
 .players-list ul {
@@ -12,4 +14,8 @@
 
 .players-list-location {
     color:blueviolet;
+}
+
+.absent-players-list li{
+    list-style: none;
 }

@@ -9,13 +9,22 @@
 
 .player-card:hover{
     background-color: rgb(253, 187, 65);
+    cursor: pointer;
 }
 
-.player-card-button{
+.player-attendance{
     all:unset;
     font-size: 14px;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     padding: 2px 4px;
-    border-radius:8px;
-    background: blueviolet;
+    /* border-radius:8px; */
+    /* background: blueviolet; */
+}
+
+.player-absent{
+    color:rgb(187, 16, 16);
+}
+
+.player-present{
+    color:rgb(58, 120, 58);
 }
