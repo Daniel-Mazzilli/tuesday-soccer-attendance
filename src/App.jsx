@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import PlayersList from "./components/PlayersList";
+import NewPlayerForm from "./components/NewPlayerForm";
 import "./App.css";
 
 function App() {
@@ -27,12 +29,21 @@ function App() {
     },
   ];
 
+  const [allPlayers, setAllPlayers] = useState(players)
+  const [absentPlayers, setAbsentPlayers] = useState(allPlayers);
+
+  const addNewPlayer = (newPlayer) => {
+    setAllPlayers([...allPlayers, newPlayer])
+    setAbsentPlayers([...absentPlayers, newPlayer])
+  }
+
   const practiceLocation = "Track field"
 
   return (
     <div className="app">
       <Navbar />
-      <PlayersList players={players} location={practiceLocation}/>
+      <PlayersList allPlayers={allPlayers} location={practiceLocation} absentPlayers={absentPlayers} setAbsentPlayers={setAbsentPlayers}/>
+      <NewPlayerForm addNewPlayer={addNewPlayer}/>
     </div>
   );
 }

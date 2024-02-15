@@ -2,9 +2,9 @@ import { useState } from "react";
 import PlayerCard from "./PlayerCard";
 import "./PlayersList.css";
 
-export default function PlayersList({ players, location }) {
+export default function PlayersList({ allPlayers, location, absentPlayers, setAbsentPlayers }) {
   const [attendanceList, setAttendanceList] = useState([]);
-  const [absentPlayers, setAbsentPlayers] = useState(players);
+  
 
   const updateAttendance = (newPlayer) => {
     const foundPlayer = attendanceList.find(
@@ -39,7 +39,7 @@ export default function PlayersList({ players, location }) {
         <span className="players-list-location">{location}</span>
       </h2>
       <ul>
-        {players.map((player) => {
+        {allPlayers.map((player) => {
           return (
             <PlayerCard
               key={player.id}
