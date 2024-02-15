@@ -1,13 +1,12 @@
 import { useState } from "react";
 import "./PlayerCard.css";
 
-export default function PlayerCard({ player, updateAttendanceList, updateAbsentPlayers }) {
+export default function PlayerCard({ player, updateAttendance }) {
   const [isPresent, setIsPresent] = useState(false);
 
   const toggleAttendance = () => {
     setIsPresent(!isPresent);
-    updateAttendanceList(player);
-    updateAbsentPlayers(player);
+    updateAttendance(player);
   }
 
   return (
