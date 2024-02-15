@@ -1,0 +1,21 @@
+.player-card{
+    color:azure;
+    border-bottom: 2px solid #242424;
+    width: 400px;
+    margin: 12px 6px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.player-card:hover{
+    background-color: rgb(253, 187, 65);
+}
+
+.player-card-button{
+    all:unset;
+    font-size: 14px;
+    border: 1px solid grey;
+    padding: 2px 4px;
+    border-radius:8px;
+    background: blueviolet;
+}

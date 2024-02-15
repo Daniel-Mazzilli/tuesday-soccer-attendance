@@ -1,0 +1,15 @@
+.players-list{
+    background-color: rgb(174, 174, 218);
+    color: #242424;
+    width: 420px;
+    min-height: 300px;
+    border-radius: 8px;
+}
+
+.players-list ul {
+    all:unset;
+}
+
+.players-list-location {
+    color:blueviolet;
+}
