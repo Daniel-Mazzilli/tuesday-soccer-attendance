@@ -17,15 +17,26 @@ export default function NewPlayerForm({ addNewPlayer }) {
     });
   };
 
+  const resetNewPlayerInfo = () => {
+    setNewPlayerInfo({
+      firstName: "",
+      lastName: "",
+      role: "",
+      joined: "",
+      id: 0,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     //adding a player id to our newPlayerInfo when submitting the form
-    const newPlayerId = newPlayerInfo.lastName + newPlayerInfo.firstName
+    const newPlayerId = newPlayerInfo.lastName + newPlayerInfo.firstName;
 
-    const newPlayer = {...newPlayerInfo, id: newPlayerId}
+    const newPlayer = { ...newPlayerInfo, id: newPlayerId };
 
-    addNewPlayer(newPlayer)
+    addNewPlayer(newPlayer);
+    resetNewPlayerInfo();
   };
 
   return (
