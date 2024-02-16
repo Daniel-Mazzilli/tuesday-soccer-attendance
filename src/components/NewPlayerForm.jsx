@@ -7,8 +7,9 @@ export default function NewPlayerForm({ addNewPlayer }) {
     lastName: "",
     role: "",
     joined: "",
-    id: 0,
   });
+
+  const URL = import.meta.env.VITE_BASE_API_URL;
 
   const handleInputChange = (event) => {
     setNewPlayerInfo({
@@ -23,19 +24,25 @@ export default function NewPlayerForm({ addNewPlayer }) {
       lastName: "",
       role: "",
       joined: "",
-      id: 0,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //adding a player id to our newPlayerInfo when submitting the form
-    const newPlayerId = newPlayerInfo.lastName + newPlayerInfo.firstName;
+    const options = {
+      method: "POST",
+      body: JSON.stringify(newPlayerInfo),
+      headers: { "Content-Type": "application/json" },
+    };
 
-    const newPlayer = { ...newPlayerInfo, id: newPlayerId };
-
-    addNewPlayer(newPlayer);
+    fetch(`${URL}/players`, options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data from POST", data)
+        console.log("new player info", newPlayerInfo)
+        addNewPlayer(data)});
+        
     resetNewPlayerInfo();
   };
 
