@@ -2,9 +2,31 @@ import { useState } from "react";
 import PlayerCard from "./PlayerCard";
 import "./PlayersList.css";
 
-export default function PlayersList({ allPlayers, location, absentPlayers, setAbsentPlayers }) {
+export default function PlayersList({
+  allPlayers,
+  location,
+  absentPlayers,
+  setAbsentPlayers,
+  setAllPlayers,
+}) {
   const [attendanceList, setAttendanceList] = useState([]);
-  
+
+  const filterOutPlayer = (deletedPlayer, players) => {
+    return players.filter((player) => player.id !== deletedPlayer.id);
+  };
+
+  const handleDeletePlayer = (deletedPlayer) => {
+    const filteredAllPlayers = filterOutPlayer(deletedPlayer, allPlayers);
+    const filteredAbsentPlayers = filterOutPlayer(deletedPlayer, absentPlayers);
+    const filteredAttendanceList = filterOutPlayer(
+      deletedPlayer,
+      attendanceList
+    );
+
+    setAllPlayers(filteredAllPlayers);
+    setAbsentPlayers(filteredAbsentPlayers);
+    setAttendanceList(filteredAttendanceList);
+  };
 
   const updateAttendance = (newPlayer) => {
     const foundPlayer = attendanceList.find(
@@ -45,6 +67,7 @@ export default function PlayersList({ allPlayers, location, absentPlayers, setAb
               key={player.id}
               player={player}
               updateAttendance={updateAttendance}
+              handleDeletePlayer={handleDeletePlayer}
             />
           );
         })}
